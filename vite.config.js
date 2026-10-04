@@ -7,6 +7,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/cafedra-justbuy-proj',
+
   plugins: [
     vue(),
     vueDevTools(),
