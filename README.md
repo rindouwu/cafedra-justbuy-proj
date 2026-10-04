@@ -1,44 +1,82 @@
-# justbuy-proj
+# Просто купить
 
-This template should help get you started developing with Vue 3 in Vite.
+Небольшое SPA интернет-магазина, выполненное в рамках тестового задания на кафедру.
 
-## Recommended IDE Setup
+## Стек
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Vue 3
+- Vite
+- Vue Router
+- Pinia
+- Axios
+- Tailwind CSS
 
-## Recommended Browser Setup
+## Возможности
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+- просмотр списка товаров;
+- регистрация и авторизация;
+- сохранение авторизации после перезагрузки страницы;
+- добавление товаров в корзину;
+- изменение количества товаров;
+- удаление товаров из корзины;
+- оформление заказа;
+- просмотр своих заказов;
+- обработка ошибок API;
+- визуализированный тост об успешных действиях и ошибках.
 
-## Customize configuration
+## Запуск проекта
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+Установить зависимости:
 
-## Project Setup
-
-```sh
+```bash
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+Запустить проект в режиме разработки:
 
-```sh
+```bash
 npm run dev
 ```
 
-### Compile and Minify for Production
+После запуска приложение будет доступно по адресу, который выведет Vite в терминале.
 
-```sh
+Для проверки production-сборки:
+
+```bash
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## API
 
-```sh
-npm run lint
+Проект использует API:
+
+```text
+http://lifestealer86.ru/api-shop/
 ```
+
+Запросы к API выполняются через Axios. Авторизация использует Bearer Token.
+
+## Структура
+
+```text
+src/
+├── api/          # настройка Axios
+├── components/   # переиспользуемые компоненты
+├── services/     # работа с API
+├── stores/       # Pinia stores
+├── views/        # страницы приложения
+├── router/       # маршрутизация
+└── App.vue
+```
+
+## Деплой
+
+Проект настроен для деплоя на GitHub Pages через GitHub Actions.
+
+При каждом push в `main` запускается сборка проекта и публикация `dist`.
+
+### Ограничение GitHub Pages
+
+API проекта доступен только по HTTP, а GitHub Pages использует HTTPS. Поэтому браузер блокирует запросы к API в опубликованной версии из-за Mixed Content.
+
+Локальный запуск проекта работает с API без этого ограничения.
